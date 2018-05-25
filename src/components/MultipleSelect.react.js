@@ -46,7 +46,7 @@ class MultipleSelect extends Component {
         this.state = {
             value: [],
             lastChecked: null,
-            options: props.options
+            options: this.props.options
         };
     }
 
