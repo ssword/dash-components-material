@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -40,13 +39,13 @@ const MenuProps = {
   }
 };
 
-class MultipleSelect extends Component {
-    constructor(props){
+class MultipleSelect extends Component<Props, State> {
+    constructor(props: Props){
         super(props);
         this.state = {
             value: [],
             lastChecked: null,
-            options: props.options
+            options: this.props.options
         };
     }
 
@@ -189,14 +188,14 @@ class MultipleSelect extends Component {
       }
 }
 
-MultipleSelect.propTypes = {
-    id: PropTypes.string.isRequired,
-    options: PropTypes.object.isRequired,
-    value: PropTypes.array,
-    classes: PropTypes.object
+type Props = {
+    id? : string,
+    options?: any,
+    value?: any,
+    classes?: object
 };
 
-MultipleSelect.defaultProps = {
+const defaultProps = {
     options: [
         'All',
         'Oliver Hansen',
@@ -212,8 +211,6 @@ MultipleSelect.defaultProps = {
       ],
     classes: styles
 }
-
-
 
 
 export default withStyles(styles, {
